@@ -1,3 +1,5 @@
-Today
+Learning version management with git.
 
-learn python.
+Git is powerful!
+
+Good!
