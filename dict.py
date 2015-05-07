@@ -9,6 +9,6 @@ for a in ('abcdefghig'):
 	for b in ('klmnopqrst'):
 		#user['name'].append('Allen'+a*2+b*2)
 		
-		user['id'].append(2012+(c=c+1))
+		user['id'].append(2012)
 
 print user
