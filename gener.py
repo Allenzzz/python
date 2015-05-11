@@ -1,5 +1,5 @@
-#-*-encoding:utf-8-*-
-import mysql.connector
+#-*-coding:utf-8-*-
+import mysql.connector as mconn
 # def gg():
 # aa,bb,cc=[],[],[]
 # aa=[x+y+z for x in 'ABC' for y in 'omu' for z in 'bty']
@@ -10,17 +10,24 @@ import mysql.connector
 aa,bb=[],[]
 aa=[x+y+z for x in 'ABC' for y in 'omu' for z in 'bty']
 for i in range(len(aa)):
-	t=('2015%04d' % i,aa[i])
+	t=('2015%04d' %(i+1),aa[i])
 	bb.append(t)
-print len(bb)
+# print len(bb)
+try:
+	db=mconn.connect(user='allen',password='allen',database='test')
+	cur=db.cursor()
 
-db=mysql.connector.connect(user='allen',password='allen',database='test')
-cur=db.cursor()
+	sql_insert=('INSTER INTO USER VALUES(%s,%s)')
 
-sql_insert=('INSTER INTO USER VALUES(%s,%s)')
-
-for i in range(len[bb]):
-	cur.execute(sql_insert,bb[i])
-	cur.rowcount
+	for i in range(len(aa)):
+		cur.execute(sql_insert,bb[i])
+		cur.rowcount
 	db.commit()
-cur.close()
+except mconn.Error, e:
+	raise e('dkddddd')
+	# print ('Error:%s'%e.args[0])
+finally:
+	if db:
+		cur.close()
+
+
